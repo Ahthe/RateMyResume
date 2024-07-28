@@ -44,7 +44,7 @@ To get started with this project, follow the instructions below:
 
 4. Set up the environment variables:
 
-    Create a `.env` file in the root directory and add the following:
+    Change `.env.example` to `.env.local` file in the root directory and add the following:
    ```bash
    MISTRAL_API_KEY=<your-api--key>
    OPENAI_API_KEY=<your-api--key>
