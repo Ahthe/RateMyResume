@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import ResumeUploader from './ResumeUploader';
-import ResumeWorth from './ResumeWorth';
+import ResumePercentage from './ResumeWorth';
 import styles from '../styles/ResumeAnalyzerApp.module.css';
 import { useCompletion } from 'ai/react';
 import { SparklesCore } from './ui/sparkles';
@@ -26,7 +26,7 @@ const ResumeAnalyzerApp = () => {
     if (resumeText !== '') {
       getResumeWorth(resumeText).then();
     }
-  }, [resumeText]);
+  }, [resumeText, complete]);
 
   return (
     <div className={styles.analyzerWrapper}>
@@ -50,7 +50,7 @@ const ResumeAnalyzerApp = () => {
                 </div>}
             </div>
           ) : (
-            <ResumeWorth resumeWorth={completion} />
+            <ResumePercentage resumePercentage={completion} />
           )}
           {error && <p className={styles.errorMessage}>{error.message}</p>}
          

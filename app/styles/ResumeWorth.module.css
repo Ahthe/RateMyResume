@@ -17,6 +17,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px #ffeb3b40;
+  position: relative; /* Add this */
+}
+
+.worth::after {
+  content: '%';
+  font-size: 24px;
+  vertical-align: super;
+  margin-left: 2px;
+  position: absolute;
+  top: 0;
+  right: -20px; /* Adjust this value as needed */
 }
 
 .textHighlight {
