@@ -5,6 +5,7 @@ import ResumeWorth from './ResumeWorth';
 import styles from '../styles/ResumeAnalyzerApp.module.css';
 import { useCompletion } from 'ai/react';
 import { SparklesCore } from './ui/sparkles';
+import { Typewriter } from 'react-simple-typewriter';
 
 const ResumeAnalyzerApp = () => {
   const [showWorth, setShowWorth] = useState(false);
@@ -29,32 +30,33 @@ const ResumeAnalyzerApp = () => {
 
   return (
     <div className={styles.analyzerWrapper}>
-      <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-md">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
-          className="absolute inset-0 w-full h-full"
-          particleColor="#FFFFFF"
-        />
-        {!showWorth ? (
+          {!showWorth ? (
           <div className={styles.uploaderWrapper}>
-            <p className={styles.instructionsText}>Upload your resume to know your rate.</p>
+            <p className={styles.instructionsText}>
+              <Typewriter
+                words={['Upload your resume to Improve it.' , 'Get your 6 figure salary today.']}
+                loop={0}
+                cursor
+                cursorStyle='_'
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </p>
             <ResumeUploader setIsLoading={setIsLoadingResume} setResumeText={setResumeText} />
-            {(isLoadingResume || isLoading) &&
-              <div className={styles.loadingContainer}>
-                <div className={styles.loadingSpinner}></div>
-              </div>}
-          </div>
-        ) : (
-          <ResumeWorth resumeWorth={completion} />
-        )}
-        {error && <p className={styles.errorMessage}>{error.message}</p>}
-      </div>
-    </div>
-  );
+              {(isLoadingResume || isLoading) && 
+                <div className={styles.loadingContainer}>
+                  <div className={styles.loadingSpinner}></div>
+                </div>}
+            </div>
+          ) : (
+            <ResumeWorth resumeWorth={completion} />
+          )}
+          {error && <p className={styles.errorMessage}>{error.message}</p>}
+         
+        </div>
+      );
+  
+    
 };
-
 export default ResumeAnalyzerApp;

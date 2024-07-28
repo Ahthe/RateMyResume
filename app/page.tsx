@@ -8,19 +8,16 @@ import { SparklesCore } from './components/ui/sparkles';
 export default function Home() {
   return (
     <main className={styles.App}>
-      {/* <div className='Sparkles'>
-        <SparklesPre/>
-        <SparklesPreview/> */}
       <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-md">
-                <SparklesCore
-                    id="tsparticlesfullpage"
-                    background="transparent"
-                    minSize={0.6}
-                    maxSize={1.4}
-                    particleDensity={100}
-                    className="absolute inset-0 w-full h-full"
-                    particleColor="#FFFFFF"
-                /> 
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className={styles.sparkles}
+          particleColor="#FFFFFF"
+        />
         <div className={styles.container}>
           <div className={styles.content}>
             <div className={styles.centeredContent}>
@@ -30,7 +27,9 @@ export default function Home() {
               <ResumeAnalyzerApp />
             </div>
           </div>
-          <p className={styles.footer}>Built by <a href='mailto:falconprogrammer@proton.me' target='_blank'>Falcon Programmer.ai</a></p>
+          <p className={styles.footer}>
+            Built by <a href='mailto:falconprogrammer@proton.me' target='_blank'>Falcon Programmer.ai</a>
+          </p>
         </div>
       </div>
     </main>

@@ -119,40 +119,27 @@ const ResumeUploader: React.FC<Props> = ({ setResumeText, setIsLoading }) => {
     };
 
     return (
-        <div className={styles.container}>
-            
-            {/* <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-md"> */}
-                {/* <SparklesCore
-                    id="tsparticlesfullpage"
-                    background="transparent"
-                    minSize={0.6}
-                    maxSize={1.4}
-                    particleDensity={100}
-                    className="absolute inset-0 w-full h-full"
-                    particleColor="#FFFFFF"
-                /> */}
-                <div
-                    className={`${styles.fileUploadBtnContainer} ${isDragOver ? styles.dragOver : ''}`}
-                    onDrop={(e: React.DragEvent<HTMLDivElement>) => handleDrop(e)}
-                    onDragOver={(e: React.DragEvent<HTMLDivElement>) => handleDragOver(e)}
-                    onDragEnter={(e: React.DragEvent<HTMLDivElement>) => handleDragEnter(e)}
-                    onDragLeave={(e: React.DragEvent<HTMLDivElement>) => handleDragLeave(e)}
-                >
-                    <input
-                        type="file"
-                        id="file-upload"
-                        onChange={handleButtonUpload}
-                        accept="application/pdf"
-                        hidden
-                    />
-                    <label htmlFor="file-upload" className={`${styles.label} ${styles.mainBtn}`}>
-                        <MdCloudUpload size={24} /> Upload resume
-                    </label>
-                </div>
-                {error && <p className={styles.errorMessage}>{error}</p>}
-            </div>
-        // </div>
-    );
+      <div>
+      <div
+        className={`${styles.fileUploadBtnContainer} ${isDragOver ? styles.dragOver : ''}`}
+        onDrop={(e: React.DragEvent<HTMLDivElement>) => handleDrop(e)}
+        onDragOver={(e: React.DragEvent<HTMLDivElement>) => handleDragOver(e)}
+        onDragEnter={(e: React.DragEvent<HTMLDivElement>) => handleDragEnter(e)}
+      >
+        <input
+          type="file"
+          id="file-upload"
+          onChange={handleButtonUpload}
+          accept="application/pdf"
+          hidden
+        />
+        <label htmlFor="file-upload" className={`${styles.label} ${styles.mainBtn}`}>
+          <MdCloudUpload /> Upload resume
+        </label>
+      </div>
+      {error && <p className={styles.errorMessage}>{error}</p>}
+    </div>
+  );
 };
 
 export default ResumeUploader;
