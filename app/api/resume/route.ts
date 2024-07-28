@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "user",
-        content: `You're an expert sofware engineer resume creator with 20 years of experience helping software engineers land jobs in big tech companies like Google, Apple, etc. Make sure the resume follows this XYZ principle that is compatible with the latest Applicant Tracking System (ATS). The XYZ principle I want you to follow is:
+        content: `You’re an expert sofware engineer resume with 20 years of experience in helping employees land jobs in big tech companies such as Google, Apple, Microsoft. Please ensure that the resume is compatible with the latest Applicant Tracking System and provide a score (in percentage) on how well the resume matches a tech job’s keywords, formatting. Also ensure the resume has the following x, y, z structure where:
          x what you built and what technologies you used
          y what it accomplished
          z measurements (percentage improvement, number of users, etc.)
