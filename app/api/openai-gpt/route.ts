@@ -16,7 +16,7 @@ export async function POST(req: Request, res: Response) {
     messages: [
       {
         role: "system",
-        content: `CONTEXT: You are an expert at predicting the dollar worth of resumes.
+        content: `CONTEXT: You are an expert at predicting the value worth of  the resumes.
 -------
 TASK: 
 - You will receive a resume from a user as a test input.
