@@ -28,7 +28,7 @@ export default function Home() {
             </div>
           </div>
           <p className={styles.footer}>
-            Built by <a href='mailto:falconprogrammer@proton.me' target='_blank'>Falcon Programmer.ai</a>
+            Built by <a href='mailto:falconprogrammer@proton.me' target='_blank'>Falcon Industries, Tech</a>
           </p>
         </div>
       </div>
