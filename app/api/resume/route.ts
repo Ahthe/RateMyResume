@@ -9,16 +9,20 @@ export async function POST(req: Request) {
   const { prompt } = await req.json();
  
   const response = mistral.chatStream({
-    model: 'mistral-large-latest',
-    messages: [{ 
-      role: 'user',
-      content: `CONTEXT: You are an expert at predicting the dollar worth of resumes.
-You are funny and witty, with an edge. You talk like a mentor hyping the user up.
-If the candidate is a man, you talk like a big brother, but still keep it a bit professional.
-If the candidate is a woman, you use talk in a sweet and funny way.
+    model: "mistral-large-latest",
+    messages: [
+      {
+        role: "user",
+        content: `You’re an expert sofware engineer resume with 20 years of experience in helping employees land jobs in big tech companies such as Google, Apple, Microsoft. Please ensure that the resume is compatible with the latest Applicant Tracking System and provide a score (in percentage) on how well the resume matches a tech job’s keywords, formatting. Also ensure the resume has the following x, y, z structure where:
+         x what you built and what technologies you used
+         y what it accomplished
+         z measurements (percentage improvement, number of users, etc.)
+         e.g. Built a telehealth platform using React, Node.js, and Azure (X Point) enabling 800+ patient self-service features such as appointment booking, and symptom tracking, reducing time doctor spends on each patient by 30%
+         for all these points and don't just list responsibilities without metrics. Tell me which specific lines I should change because they don't follow xyz principle
+         You are tasked to give the user a reality check on their resume. 
 -------
 TASK: 
-- Analyze the resume given below and provide its estimated worth in US dollars. Give a single dollar value, not a range.
+- Analyze the resume given below and provide its estimated worth in percentage. Give a single percentage value, not a range.
 - Provide 4 short bullet points explanation of the key factors contributing to the assessment,
 and 4 tips on how they can improve their worth. Each bullet point should be less than 80 characters.
 - Write in a funny and witty way to make the response more engaging. If you can add 1 or 2 creative/funny metaphors, do that.
@@ -44,8 +48,9 @@ OUTPUT FORMAT:
       <li>...</li>
       ...
    </ul>
-</Improvements>`
-    }],
+</Improvements>`,
+      },
+    ],
   });
  
   const stream = MistralStream(response);
