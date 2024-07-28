@@ -13,46 +13,76 @@ export async function POST(req: Request) {
     messages: [
       {
         role: "user",
-        content: `You’re an expert sofware engineer resume with 20 years of experience in helping employees land jobs in big tech companies such as Google, Apple, Microsoft. Please ensure that the resume is compatible with the latest Applicant Tracking System and provide a score (in percentage) on how well the resume matches a tech job’s keywords, formatting. Also ensure the resume has the following x, y, z structure where:
-         x what you built and what technologies you used
-         y what it accomplished
-         z measurements (percentage improvement, number of users, etc.)
-         e.g. Built a telehealth platform using React, Node.js, and Azure (X Point) enabling 800+ patient self-service features such as appointment booking, and symptom tracking, reducing time doctor spends on each patient by 30%
-         for all these points and don't just list responsibilities without metrics. Tell me which specific lines I should change because they don't follow xyz principle
-         You are tasked to give the user a reality check on their resume. 
+        content: `You're an expert software engineer resume creator with 20 years of experience helping employees land jobs in big tech companies such as Google, Apple, and Microsoft. 
+
+Ensure the resume is ATS-compatible and provide a percentage score on how well it matches tech job keywords and formatting. Strictly evaluate the resume based on the X, Y, Z structure:
+X: What was built and technologies used
+Y: Purpose and context of the solution
+Z: Measurable impact and accomplishments
+
+Complex examples to guide your analysis:
+1. Architected and implemented a distributed microservices platform using Kubernetes, Docker, and Golang (X), to modernize a legacy monolithic e-commerce system serving 5M+ daily users (Y), resulting in 99.99% uptime, 40% reduction in infrastructure costs, and 3x improvement in deployment frequency (Z).
+2. Led the development of an AI-powered recommendation engine using TensorFlow, Python, and AWS SageMaker (X), to enhance user engagement in a streaming service with 50M+ subscribers (Y), increasing average watch time by 22% and reducing churn rate by 15% within 6 months of deployment (Z).
+3. Designed and implemented a blockchain-based supply chain tracking system using Hyperledger Fabric and Node.js (X), to address transparency issues in a multinational corporation's global logistics network (Y), reducing shipment delays by 35% and cutting fraudulent activities by 60%, saving the company $10M annually (Z).
+
+When analyzing, look out for:
+- Specificity of technologies and frameworks mentioned
+- Clarity of the project's purpose and business context
+- Quantifiable metrics that demonstrate significant impact
+- Scalability and complexity of the solutions described
+- Alignment with current industry trends and in-demand skills
+
+Provide targeted feedback on:
+- Weak points that lack the X, Y, Z structure
+- Overuse of buzzwords without substantive content
+- Missed opportunities to highlight leadership or innovation
+- Balance between technical depth and business impact
+
+Your analysis should be incisive yet constructive, helping the user transform their resume into a compelling narrative of their professional journey and technical expertise.
+
 -------
 TASK: 
 - Analyze the resume given below and provide its estimated worth in percentage. Give a single percentage value, not a range.
-- Provide 4 short bullet points explanation of the key factors contributing to the assessment,
-and 4 tips on how they can improve their worth. Each bullet point should be less than 80 characters.
+- Be strict with the percentage: if the resume is not following proper resume format, give it a lower percentage.
+- Provide 4 short bullet points explaining the key factors contributing to the assessment.
+- Provide 4 improvement suggestions, each with a sample bullet point demonstrating the improvement.
 - Write in a funny and witty way to make the response more engaging. If you can add 1 or 2 creative/funny metaphors, do that.
 - Always speak to the user in 'you'.
--------
+
 RESUME:
 ${prompt}
 -------
 OUTPUT FORMAT: 
-<Estimated Worth>$...</Estimated Worth>
+<Estimated Value>...%</Estimated Value>
 <Explanation>
    <ul>
       <li>...</li>
       <li>...</li>
       <li>...</li>
-      ...
+      <li>...</li>
    </ul>
 </Explanation>
 <Improvements>
    <ul>
-      <li>...</li>
-      <li>...</li>
-      <li>...</li>
-      ...
+      <li>Improvement: ...</li>
+      <li>Sample: ...</li>
+   </ul>
+   <ul>
+      <li>Improvement: ...</li>
+      <li>Sample: ...</li>
+   </ul>
+   <ul>
+      <li>Improvement: ...</li>
+      <li>Sample: ...</li>
+   </ul>
+   <ul>
+      <li>Improvement: ...</li>
+      <li>Sample: ...</li>
    </ul>
 </Improvements>`,
       },
     ],
   });
- 
   const stream = MistralStream(response);
  
   return new StreamingTextResponse(stream);

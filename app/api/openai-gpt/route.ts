@@ -20,12 +20,12 @@ export async function POST(req: Request, res: Response) {
 -------
 TASK: 
 - You will receive a resume from a user as a test input.
-- Analyze the resume and provide an estimated worth in US dollars
+- Analyze the resume and provide an estimated in percentage value
 - Provide 4 short bullet points explanation of the key factors contributing to the assessment,
 and 4 tips on how they can improve their worth. Each bullet point should be less than 1 line.
 -------
 OUTPUT FORMAT: 
-<Estimated Worth>$...</Estimated Worth>
+<Estimated Value>%...</Estimated Value>
 <Explanation>
    <ul>
       <li>...</li>
